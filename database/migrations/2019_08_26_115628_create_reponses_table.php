@@ -15,6 +15,10 @@ class CreateReponsesTable extends Migration
     {
         Schema::create('reponses', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('answer',255);
+            $table->integer('question_id')->unsigned()->index();
+            $table->foreign('question_id')->references('id')->on('questions');
+            $table->string('Url_user');
             $table->timestamps();
         });
     }

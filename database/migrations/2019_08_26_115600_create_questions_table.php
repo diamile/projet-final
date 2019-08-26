@@ -15,6 +15,12 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->string('number');
+            $table->string('typeOfQuestion');
+            $table->string('choice')->nullable();
+            $table->integer('poll_id')->unsigned()->index();
+           
             $table->timestamps();
         });
     }
