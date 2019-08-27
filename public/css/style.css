@@ -20,5 +20,16 @@
 #logo{
     width:250px;
     height:80px;
+    
 }
 
+.bg-light{
+    background-color:#00BFFF !important;
+    height:963px !important;
+    margin-top:-23px !important;
+}
+
+.logo{
+    width:250px !important;
+    height:80px !important;
+}

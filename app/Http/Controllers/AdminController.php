@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Reponse;
+use App\Question;
 
 class AdminController extends Controller
 {
@@ -11,9 +13,29 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+     public function __construct()
+     {
+         $this->middleware('auth');
+     }
+ 
+     /**
+      * Show the application dashboard.
+      *
+      * @return \Illuminate\Contracts\Support\Renderable
+      */
+     public function index()
+     {
+         //return view('home');
+         return view('admin.accueil');
+     }
+
+    public function showQuestion(){
+        return view('admin.questionnaire');
+    }
+
+
+    public function showResponse(){
+        return view('admin.reponses');
     }
 
     /**

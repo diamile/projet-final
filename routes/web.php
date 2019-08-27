@@ -21,4 +21,12 @@ Route::post('/reponse','ResponsesController@store')->name('pages.reponse');
  Route::get('/{id}', 'QuestionsController@responses')->where('id','[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::ressource('/accueil', 'AdminController@index')->name('accueil');
+
+Route::resource('admin', 'AdminController');
+
+
+
+Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/questionnaire', 'AdminController@showQuestion')->name('admin.questionnaire');
+Route::get('/reponses', 'AdminController@showResponse')->name('admin.reponse');
