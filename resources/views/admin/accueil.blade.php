@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100 menu" id="sidebar">
+            <div style="height:963px" class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100 menu" id="sidebar">
                     <div class="menu-big" style="margin:0 auto">
                     
                     <img style="width:200px;height:40px;margin:0 auto;" id="logo" src="{{asset('images/bigscreen_logo.png')}}" alt="logo"/>

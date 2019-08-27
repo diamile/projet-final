@@ -45,10 +45,29 @@
                     <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a>
                     reponses
                 </h2>
-                <h6 class="hidden-sm-down">Shrink page width to see sidebar collapse</h6>
-                <p>3 wolf moon retro jean shorts chambray sustainable roof party. Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore
-                    PBR try-hard kale chips. Brooklyn vinyl lumbersexual bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache. 3 wolf moon hashtag church-key Odd Future. Austin messenger bag normcore, Helvetica Williamsburg
-                    sartorial tote bag distillery Portland before they sold out gastropub taxidermy Vice.</p>
+               
+
+                <table class="table table-hover" style="border:1px solid black;margin-top:10px;">
+                        <thead>
+                          <tr>
+                            <th scope="col">Numero</th>
+                            <th scope="col">corps de la question</th>
+                            <th scope="col">réponses</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($reponses as $reponse)
+                          <tr class="table-dark">
+                            <th scope="row">Question {{$reponse->question->id}}</th>
+                            <td>{{$reponse->question->title}}</td>
+                            
+                            <td>{{$reponse->answer}}</td>
+                            
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table> 
             </div>
         </div>
     </div>

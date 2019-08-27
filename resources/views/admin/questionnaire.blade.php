@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100 menu" id="sidebar">
+            <div style="height:1081px" class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100 menu" id="sidebar">
                     <div class="menu-big" style="margin:0 auto">
                     
                     <img style="width:200px;height:40px;margin:0 auto;" id="logo" src="{{asset('images/bigscreen_logo.png')}}" alt="logo"/>
@@ -41,14 +41,29 @@
                 
             </div>
             <div class="col pt-2">
-                <h2>
+                <h2 style="text-align:center;">
                     <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a>
-                    Questionnaire
+                    Page Questionnaire
                 </h2>
-                <h6 class="hidden-sm-down">Shrink page width to see sidebar collapse</h6>
-                <p>3 wolf moon retro jean shorts chambray sustainable roof party. Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore
-                    PBR try-hard kale chips. Brooklyn vinyl lumbersexual bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache. 3 wolf moon hashtag church-key Odd Future. Austin messenger bag normcore, Helvetica Williamsburg
-                    sartorial tote bag distillery Portland before they sold out gastropub taxidermy Vice.</p>
+                <table class="table table-hover" style="border:1px solid black;margin-top:10px;">
+                        <thead>
+                          <tr>
+                            <th scope="col">Numero</th>
+                            <th scope="col">corps de la question</th>
+                            <th scope="col">Type de question</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($questions as $question)
+                          <tr class="table-dark">
+                            <th scope="row">Question {{$question->id}}/{{$questions->count()}}</th>
+                            <td>{{$question->title}}</td>
+                            <td>{{$question->typeOfQuestion}}</td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table> 
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Reponse;
 use App\Question;
 
+
 class AdminController extends Controller
 {
     /**
@@ -30,12 +31,18 @@ class AdminController extends Controller
      }
 
     public function showQuestion(){
-        return view('admin.questionnaire');
+        $questions=Question::all();
+        $email="email";
+        return view('admin.questionnaire',['questions'=>$questions,'email'=>$email]);
+        
     }
 
 
     public function showResponse(){
-        return view('admin.reponses');
+        $questions=Question::all();
+        $reponses=Reponse::all();
+
+        return view('admin.reponses',['questions'=>$questions,'reponses'=>$reponses]);
     }
 
     /**

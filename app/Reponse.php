@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\question;
 
 class Reponse extends Model
 {
@@ -12,4 +13,9 @@ class Reponse extends Model
         
         return $query->where('Url_user',$userLink);
      }
+
+     public function question(){
+        
+        return $this->belongsTo('App\Question');
+    }
 }
