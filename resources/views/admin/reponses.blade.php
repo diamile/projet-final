@@ -46,8 +46,9 @@
                     reponses
                 </h2>
                
-
+               
                 <table class="table table-hover" style="border:1px solid black;margin-top:10px;">
+                       
                         <thead>
                           <tr>
                             <th scope="col">Numero</th>
@@ -56,8 +57,9 @@
                             
                           </tr>
                         </thead>
-                        <tbody>
                         @foreach($reponses as $reponse)
+                        <tbody>
+                      
                           <tr class="table-dark">
                             <th scope="row">Question {{$reponse->question->id}}</th>
                             <td>{{$reponse->question->title}}</td>
@@ -65,9 +67,11 @@
                             <td>{{$reponse->answer}}</td>
                             
                           </tr>
-                          @endforeach
+                         
                         </tbody>
+                        @endforeach
                       </table> 
+                     
             </div>
         </div>
     </div>
