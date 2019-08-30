@@ -25,8 +25,10 @@ Route::post('/reponse','ResponsesController@store')->name('pages.reponse');
 
 Route::resource('admin', 'AdminController');
 
+//Route::get('chart', 'ChartController@index');
 
 
-Route::get('/admin', 'AdminController@index')->name('admin');
+
+Route::get('/administration', 'AdminController@index')->name('admin');
 Route::get('/questionnaire', 'AdminController@showQuestion')->name('admin.questionnaire');
 Route::get('/reponses', 'AdminController@showResponse')->name('admin.reponse');

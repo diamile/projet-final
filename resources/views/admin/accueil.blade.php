@@ -40,15 +40,76 @@
 
                 
             </div>
+
             <div class="col pt-2">
-                <h2>
-                    <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a>
-                    Content
-                </h2>
-                <h6 class="hidden-sm-down">Shrink page width to see sidebar collapse</h6>
-                <p>3 wolf moon retro jean shorts chambray sustainable roof party. Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore
-                    PBR try-hard kale chips. Brooklyn vinyl lumbersexual bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache. 3 wolf moon hashtag church-key Odd Future. Austin messenger bag normcore, Helvetica Williamsburg
-                    sartorial tote bag distillery Portland before they sold out gastropub taxidermy Vice.</p>
+               
+                <div class="container">
+                   
+                        <div class="row" style="justify-content:space-between">
+                            <div style="width:400px;height:400px">
+                                    {!! $pie6->html() !!}
+                             </div>
+
+                            <div style="width:400px;height:400px">
+                                    {!! $pie7->html() !!}
+                            </div>
+                                
+                            <div style="width:400px;height:400px">
+                                     {!! $pie10->html() !!}
+                            </div>
+                                                        
+                                        
+                             <div style="width:400;height:400">
+                                            <canvas style="width:400px;height:400px" id="myChart"></canvas>
+                                            <script>
+                                               
+                                                var data = {
+                                                    labels: ["Qualité image", "Qualité Confort interface bigscreen", "Qualité connection reseau", "Qualité graphisme 3D","Qualité audio"],
+                                                    datasets: [
+                                                        {
+                                                            label: "Quality of Life Domains",
+                                                            backgroundColor: "rgba(68,181,238,0.2)",
+                                                            borderColor: "rgba(68,181,238,1)",
+                                                            pointBackgroundColor: "rgba(179,181,198,1)",
+                                                            pointBorderColor: "#fff",
+                                                            pointHoverBackgroundColor: "#fff",
+                                                            pointHoverBorderColor: "rgba(179,181,198,1)",
+                                                            data: ["{{$question11}}", "{{$question12}}", "{{$question13}}", "{{$question14}}", 
+                                                            "{{$question15}}"]
+                                                        }
+                                                    ]
+                                                };
+                                                
+                                                var ctx = document.getElementById("myChart");
+                                                
+                                                var myRadarChart = new Chart(ctx, {
+                                                    type: 'radar',
+                                                    data: data,
+                                                    options: {
+                                                      scale: {
+                                                        ticks: {
+                                                            beginAtZero: true
+                                                        }
+                                                      }
+                                                    }
+                                                });
+  
+            
+                                            </script>
+                            </div>
+                                
+                               
+                    </div>
+
+                {!! Charts::scripts() !!}
+               
+                
+                {!! $pie6->script() !!}
+                {!! $pie7->script() !!}
+                {!! $pie10->script() !!}
+                
+              
+                
             </div>
         </div>
     </div>

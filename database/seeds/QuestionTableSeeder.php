@@ -106,7 +106,7 @@ class QuestionTableSeeder extends Seeder
      'number' => 'Question 10/20',
      'title' =>'Vous utilisez principalement Bigscreen pour',
      'typeOfQuestion'=> 'A',
-     'choice'=>json_encode(['regarder des émissions TV en direct','regarder des films','jouer en solo, jouer en team']),
+     'choice'=>json_encode(['regarder des émissions TV en direct','regarder des films','jouer en solo', 'jouer en team']),
       'poll_id'=>1,
       
     ],
@@ -116,7 +116,7 @@ class QuestionTableSeeder extends Seeder
      'number' => 'Question 11/20',
      'title' =>'Combien donnez vous de point pour la qualité de l’image sur Bigscreen ?',
      'typeOfQuestion'=> 'C',
-     'choice'=>'',
+     'choice'=>'numerique',
       'poll_id'=>1,
       
     ],
@@ -126,7 +126,7 @@ class QuestionTableSeeder extends Seeder
      'number' => 'Question 12/20',
      'title' =>'Combien donnez vous de point pour le confort d’utilisation de l’interface Bigscreen ? ',
      'typeOfQuestion'=> 'C',
-     'choice'=>'',
+     'choice'=>'numerique',
       'poll_id'=>1,
       
     ],
@@ -136,7 +136,7 @@ class QuestionTableSeeder extends Seeder
      'number' => 'Question 13/20',
      'title' =>'Combien donnez vous de point pour la connection réseau de Bigscreen ? ',
      'typeOfQuestion'=> 'C',
-     'choice'=>'',
+     'choice'=>'numerique',
       'poll_id'=>1,
       
     ],

@@ -46,7 +46,7 @@
                     reponses
                 </h2>
                
-               
+              
                 <table class="table table-hover" style="border:1px solid black;margin-top:10px;">
                        
                         <thead>
@@ -58,6 +58,7 @@
                           </tr>
                         </thead>
                         @foreach($reponses as $reponse)
+                       
                         <tbody>
                       
                           <tr class="table-dark">

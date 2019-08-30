@@ -32,7 +32,7 @@
       
       <select class="form-control doshed" name="reponse_type{{$question->typeOfQuestion}}[{{$question->id}}]" required="required">
       	@forelse(json_decode($question->choice) as $reponse)
-        <option value="{{$reponse }}"> {{$reponse}} </option>
+        <option value="{{ $reponse }}"> {{$reponse}} </option>
         @empty
         @endforelse
       </select>

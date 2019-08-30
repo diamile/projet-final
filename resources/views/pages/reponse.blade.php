@@ -10,7 +10,9 @@
 <div class="container" id="container">
 
 	<h3>Vous Trouver ci-dessous les réponses que vous avez apporter à <br>
-		notre sondage le:
+		notre sondage le:{{ $blabla->format('d M Y') }} à {{ $blabla->format('H:i:s') }}<br>
+
+		{{$timestamp}}
 	</h3>
 	
 @foreach($questions as $question)
