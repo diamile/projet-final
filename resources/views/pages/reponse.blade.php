@@ -1,20 +1,21 @@
-@extends('layouts.master')
+@extends('layouts.master') {{--extension de master --}}
 
+
+{{--contenu de ma page reponse--}}
 <div class="container" id="container">
     
     <img id="logo" src="{{asset('images/bigscreen_logo.png')}}" alt="logo"/>
     
 @section('content')
 
-
 <div class="container" id="container">
 
-	<h3>Vous Trouver ci-dessous les réponses que vous avez apporter à <br>
+	<h1>Vous Trouver ci-dessous les réponses que vous avez apporter à <br>
 		notre sondage le:{{ $blabla->format('d M Y') }} à {{ $blabla->format('H:i:s') }}<br>
+		<strong>{{$timestamp}}</strong>
+	</h1>
 
-		{{$timestamp}}
-	</h3>
-	
+{{--boucle foreach afin de recuperer toutes mes questions--}}
 @foreach($questions as $question)
 
 <div class="form-group">
