@@ -20,6 +20,7 @@ class ResponsesController extends Controller
     
     
         $this->validate($request,[
+           
             'reponse_typeA.*' => 'required',
             'reponse_typeB.*' => 'required|min:1|max:255',
             'reponse_typeC.*' => 'required'

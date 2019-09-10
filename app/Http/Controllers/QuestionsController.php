@@ -22,16 +22,16 @@ class QuestionsController extends Controller
         $responses=Reponse::UserLink($userLink)->pluck('answer','question_id');
         
         
-        $lol=Reponse::orderBy('created_at', 'DESC')->get();
+        $date=Reponse::orderBy('created_at', 'DESC')->get();
         // $created_at->addMinutes(30);
         // addHours(2.5)
-        $blabla=$lol[0]->created_at->addHours(2);
+        $now=$date[0]->created_at->addHours(2);
        // $timestamp = Date::now(); 
         // $timestamp = now();
         $timestamp = \Carbon\Carbon::now()->addHours(2)->toDateTimeString();
         
 
-        return view('pages.reponse',['questions'=>$questions,'responses'=>$responses,'blabla'=>$blabla,'timestamp'=>$timestamp]);
+        return view('pages.reponse',['questions'=>$questions,'responses'=>$responses,'now'=>$now,'timestamp'=>$timestamp]);
     }
 
    

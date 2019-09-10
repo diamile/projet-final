@@ -13,7 +13,8 @@
 					<header>
 						<img id="logo" src="{{asset('images/bigscreen_logo.png')}}" alt="logo"/>
 						<p>Vous Trouver ci-dessous les réponses que vous avez apporter à <br>
-							notre sondage le:<strong>{{ $blabla->format('d M Y') }} à {{ $blabla->format('H:i:s') }}</strong><br>
+							notre sondage le: <strong>{{ $now->format('Y-m-d') }} à {{ $now->format('H:i:s') }}</strong><br>
+							
 						</p>
 					</header>
 			

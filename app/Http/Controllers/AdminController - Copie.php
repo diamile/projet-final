@@ -38,11 +38,13 @@ class AdminController extends Controller
         $WindowsMixedReality=DB::table('reponses')->where('answer','Windows Mixed Reality')->count();
         $PSVR=DB::table('reponses')->where('answer','PSVR')->count();
        
-        //les données que je devrais passé à pie chart pour la question6
-        $pie6=[$OcculusRift,$HTCVive,$WindowsMixedReality,$PSVR];
-
-        
-
+        //creation de mon pie Chart pour la question6
+		$pie6 =Charts::create('pie', 'highcharts')
+				    ->title('Question 6')
+				    ->labels(['Occulus Rift/s','HTC Vive','Windows Mixed Reality',' PSVR'])
+				    ->values([$OcculusRift,$HTCVive,$WindowsMixedReality,$PSVR])
+				    ->dimensions(550,250)
+                    ->responsive(false);
          /************************* fin de la section concernant le pie chart de la question 6**********************/
         
     
@@ -55,30 +57,34 @@ class AdminController extends Controller
         $GooglePlay=DB::table('reponses')->where('answer','Google Play')->count();
         $WindowsStore=DB::table('reponses')->where('answer','Windows store')->count();
         
-        
-        //les données que je devrai passé à pie chart pour la question7
-        $pie7=[$SteamVR,$OcculusStore,$Viveport,$PlaystationVR,$GooglePlay,$WindowsStore];
-       
-        
+        //creation de mon pie chart 7
+        $pie7 =Charts::create('pie', 'highcharts')
+				    ->title('Question 7')
+				    ->labels(['SteamVR','Occulus store',' Viveport',' Playstation VR',' Google Play','Windows store'])
+				    ->values([$SteamVR,$OcculusStore,$Viveport,$PlaystationVR,$GooglePlay,$WindowsStore])
+				    ->dimensions(550,250)
+                    ->responsive(false);
         /************************* fin de la section concernant le pie chart de la question 7 **********************/
                     
 
 
-         /************************* debut de la section concernant le pie chart de la question 10 **********************/
-        $regarderEmissionsTV=DB::table('reponses')->where('answer','regarder des émissions TV en direct')->count();
-        $regarderFilms=DB::table('reponses')->where('answer','regarder des films')->count();
-        $jouerEnSolo=DB::table('reponses')->where('answer','jouer en solo')->count();
-        $jouerEnTeam=DB::table('reponses')->where('answer','jouer en team')->count();
+        /************************* debut de la section concernant le pie chart de la question 10 **********************/
+                    $regarderEmissionsTV=DB::table('reponses')->where('answer','regarder des émissions TV en direct')->count();
+                    $regarderFilms=DB::table('reponses')->where('answer','regarder des films')->count();
+                    $jouerEnSolo=DB::table('reponses')->where('answer','jouer en solo')->count();
+                    $jouerEnTeam=DB::table('reponses')->where('answer','jouer en team')->count();
 
-        //les données que je devrai passé à pie chart pour la question10
-        $pie10=[$regarderEmissionsTV,$regarderFilms,$jouerEnSolo, $jouerEnTeam];
-
-
+        $pie10 =Charts::create('pie', 'highcharts')
+				    ->title('Question 10')
+				    ->labels(['regarder des émissions TV en direct','regarder des films','jouer en solo', 'jouer en team'])
+				    ->values([$regarderEmissionsTV,$regarderFilms,$jouerEnSolo, $jouerEnTeam])
+				    ->dimensions(550,250)
+                    ->responsive(false);
         /************************* fin de la section concernant le pie chart de la question 10 **********************/
 
                  
 
-        /************************* debut de la section concernant le radar chart **********************/
+         /************************* debut de la section concernant le radar chart **********************/
                      $question11 = DB::table('reponses')
                     ->join('questions', 'reponses.question_id', '=', 'questions.id')
                     ->select('reponses.*')->where('questions.title','Combien donnez vous de point pour la qualité de l’image sur Bigscreen ?')
@@ -119,7 +125,6 @@ class AdminController extends Controller
 
 
     public function showQuestion(){
-        //creation de mon instance questions afin de recuprer toutes mes questions 
         $questions=Question::all();
         $email="email";
         return view('admin.questionnaire',['questions'=>$questions,'email'=>$email]);
@@ -128,9 +133,7 @@ class AdminController extends Controller
 
 
     public function showResponse(){
-        //creation de mon instance questions afin de recuprer toutes mes questions et toutes mes reponses
         $questions=Question::all();
-        //recuperation des reponses de chaque utilisateurs
         $reponses=Reponse::all()->groupBy('Url_user');
 
         return view('admin.reponses',['questions'=>$questions,'reponses'=>$reponses]);

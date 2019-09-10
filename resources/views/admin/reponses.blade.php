@@ -4,7 +4,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100 menu" id="sidebar">
+            <div class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100 menu" id="sidebar" style="position:fixed;height:963px">
                     <div class="menu-big" style="margin:0 auto">
                     
                     <img style="width:200px;height:40px;margin:0 auto;" id="logo" src="{{asset('images/bigscreen_logo.png')}}" alt="logo"/>
@@ -40,14 +40,15 @@
 
                 
             </div>
-            <div class="col pt-2">
+
+            <div style="margin-left:600px;">
                 <h2>
                     <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a>
                     reponses
                 </h2>
                
-              
-                <table class="table table-hover" style="border:1px solid black;margin-top:10px;">
+                @foreach($reponses as $reponse=>$vals)
+                <table class="table table-responsive-md" style="border:1px solid black;margin-top:10px;">
                        
                         <thead>
                           <tr>
@@ -57,21 +58,23 @@
                             
                           </tr>
                         </thead>
-                        @foreach($reponses as $reponse)
+                       @foreach($vals as $val)
                        
                         <tbody>
                       
                           <tr class="table-dark">
-                            <th scope="row">Question {{$reponse->question->id}}</th>
-                            <td>{{$reponse->question->title}}</td>
+                            <th scope="row">Question {{$val->question->id}}</th>
+                            <td>{{$val->question->title}}</td>
                             
-                            <td>{{$reponse->answer}}</td>
+                            <td>{{$val->answer}}</td>
                             
                           </tr>
                          
                         </tbody>
                         @endforeach
+                       
                       </table> 
+                      @endforeach
                      
             </div>
         </div>

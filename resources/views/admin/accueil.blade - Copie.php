@@ -36,10 +36,10 @@
                                     </li>
                                 </ul>
                         </section>
-                </nav>
+              </nav>
 
                 
-           </section>
+        </section>
 
             <section class="col pt-2">
                
@@ -47,114 +47,30 @@
                    
                         <div class="row" style="justify-content:space-between">
                             {{--affichage de mon pie chart 6 ---}}
-                           
-                           
-                            <section style="border:1px solid gray">
-                                    
-                                    <div style="height:400px;width:400px">
-                                        <canvas id="myChart1"></canvas>
-                                     </div>
-                                     <script>
-                                         //pie Chart pour la question 6
-                                            var ctx = document.getElementById("myChart1").getContext('2d');;
-                                            var myChart = new Chart(ctx, {
-                                            type: 'pie',
-                                            data: {
-                                                labels:['Occulus Rift/s','HTC Vive','Windows Mixed Reality',' PSVR'],
-                                                datasets: [{
-                                                backgroundColor: [
-                                                    "#2ecc71",
-                                                    "#3498db",
-                                                    "#95a5a6",
-                                                    "#9b59b6",
-                                                ],
-                                                data: ["{{$pie6[0]}}", "{{$pie6[1]}}", "{{$pie6[2]}}", "{{$pie6[3]}}"]
-                                                }]
-                                            }
-                                            });
-                                         </script>
-
+                            <section style="width:400px;height:400px">
+                                    {!! $pie6->html() !!}
                             </section>
 
                               {{--affichage de mon pie chart 7 ---}}
-                            <section style="border:1px solid gray">
-                                   
-                                <div style="height:400px;width:400px">
-                                     <canvas id="myChart2"></canvas>
-                                </div>
-                                
-                                <script>
-                                    var ctx = document.getElementById("myChart2");
-                                    var myChart = new Chart(ctx, {
-                                      type: 'pie',
-                                      data: {
-                                        labels: ['SteamVR','Occulus store',' Viveport',' Playstation VR',' Google Play','Windows store'],
-                                        datasets: [{
-                                          backgroundColor: [
-                                            "#2ecc71",
-                                            "#3498db",
-                                            "#95a5a6",
-                                            "#9b59b6",
-                                            "#f1c40f",
-                                            "#e74c3c",
-                                           
-                                          ],
-                                          data: ["{{$pie7[0]}}", "{{$pie7[1]}}", "{{$pie7[2]}}", "{{$pie7[3]}}","{{$pie7[4]}}","{{$pie7[5]}}"]
-                                        }]
-                                      }
-                                    });
-                                </script>
-
-                                
+                            <section style="width:400px;height:400px">
+                                    {!! $pie7->html() !!}
                             </section>
                             
                              {{--affichage de mon pie chart 10 ---}}
-                            <section style="border:1px solid gray;margin-top:20px;">
-                                     {{--  {!! $pie10->html() !!}  --}}
-
-                                <div style="height:400px;width:400px">
-                                     <canvas id="myChart3"></canvas>
-                                 </div>
-                                
-                                 <script>
-                                             //pie Chart pour la question 10
-                                                var ctx = document.getElementById("myChart3").getContext('2d');;
-                                                var myChart = new Chart(ctx, {
-                                                type: 'pie',
-                                                data: {
-                                                    labels:['regarder des émissions TV en direct','regarder des films','jouer en solo', 'jouer en team'],
-                                                    datasets: [{
-                                                    backgroundColor: [
-                                                        "#2ecc71",
-                                                        "#3498db",
-                                                        "#95a5a6",
-                                                        "#9b59b6",
-                                                    
-                                                    ],
-                                                    data: ["{{$pie10[0]}}", "{{$pie10[1]}}", "{{$pie10[2]}}", "{{$pie10[3]}}"]
-                                                    }]
-                                                }
-                                                });
-                                    </script>
-
-
+                            <section style="width:400px;height:400px">
+                                     {!! $pie10->html() !!}
                             </section>
                                                         
-                            {{--affichage de du radarChart ---}}
-                             <section style="border:1px solid gray;margin-top:20px;">
-                                    
-                                  <div style="height:400px;width:400px">
-                                      {{--creation de mon canvas--}}
-                                            <canvas id="myChart"></canvas>
-                                    </div>
-
-                                        <script>
-                                               //creation des données qui seront donnée dans mon instance myRadarChart
-                                            var data = {
+                                        
+                             <div style="width:400;height:400">
+                                            <canvas style="width:400px;height:400px" id="myChart"></canvas>
+                                            <script>
+                                               
+                                                var data = {
                                                     labels: ["Qualité image", "Qualité Confort interface bigscreen", "Qualité connection reseau", "Qualité graphisme 3D","Qualité audio"],
                                                     datasets: [
                                                         {
-                                                            
+                                                            label: "Quality of Life Domains",
                                                             backgroundColor: "rgba(68,181,238,0.2)",
                                                             borderColor: "rgba(68,181,238,1)",
                                                             pointBackgroundColor: "rgba(179,181,198,1)",
@@ -180,22 +96,27 @@
                                                       }
                                                     }
                                                 });
-
-                                         </script>
-                             </section>
+  
+            
+                                            </script>
+                            </div>
                                 
                                
                     </div>
                     
 
                 {!! Charts::scripts() !!}
-         
+               
+                
+                {!! $pie6->script() !!}
+                {!! $pie7->script() !!}
+                {!! $pie10->script() !!}
+                
                 </section>
                         </section>
                 
         </section>
-           
-        
+        <script type="text/javascript" src="{{ URL::asset('js/radarchart.js') }}"></script>
  </article>
 
 @endsection
