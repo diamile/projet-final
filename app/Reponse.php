@@ -14,8 +14,9 @@ class Reponse extends Model
         return $query->where('Url_user',$userLink);
      }
 
+     //relation entre le model reponse et le model question
      public function question(){
-        
+        //belongsTo :une reponse appartient à une question
         return $this->belongsTo('App\Question');
     }
 }

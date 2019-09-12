@@ -8,30 +8,37 @@ use App\Reponse;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Date;
 
+//controlleur questionsControlleur
 class QuestionsController extends Controller
 {
+
+    //methode index qui permet d'affichage ma page sondage
     public function index(){
+        
+        //creation d'instance $suestion en utilisant la methode all qui permet e recuperer toutes mes questions
         $questions=Question::all();
         $email="email";
+
+        //retourne ma vue en lui passant mon instance question
         return view('pages.sondage',['questions'=>$questions,'email'=>$email]);
     }
 
+    //methode responses qui me permet d'afficher toutes questions et  reponses d'un utilisateur
     public function responses(string $userLink){
+      
+        //creations d'instance questions qui permet de recuprerer toutes les questions
         $questions=Question::all();
-        //orderBy('updated_at', 'DESC')->get();
+        
+        //creation d'instance $reponse qui me permet recuperer toutes mes reponses
         $responses=Reponse::UserLink($userLink)->pluck('answer','question_id');
         
-        
+        //recupereration de la date et l'heure juste à la fin du sondage
         $date=Reponse::orderBy('created_at', 'DESC')->get();
-        // $created_at->addMinutes(30);
-        // addHours(2.5)
-        $now=$date[0]->created_at->addHours(2);
-       // $timestamp = Date::now(); 
-        // $timestamp = now();
-        $timestamp = \Carbon\Carbon::now()->addHours(2)->toDateTimeString();
         
-
-        return view('pages.reponse',['questions'=>$questions,'responses'=>$responses,'now'=>$now,'timestamp'=>$timestamp]);
+        $now=$date[0]->created_at->addHours(2);
+       
+    
+        return view('pages.reponse',['questions'=>$questions,'responses'=>$responses,'now'=>$now]);
     }
 
    

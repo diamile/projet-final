@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+{{--affichade de toutes les reponses de toutes les utilisateurs--}}
 @section('content')
 
     <div class="container-fluid">
@@ -47,6 +48,7 @@
                     reponses
                 </h2>
                
+                {{--boucle sur mon tableau reponses afin de recuperer toutes mes reponses--}}
                 @foreach($reponses as $reponse=>$vals)
                 <table class="table table-responsive-md" style="border:1px solid black;margin-top:10px;">
                        
@@ -63,9 +65,14 @@
                         <tbody>
                       
                           <tr class="table-dark">
+                              {{--recuperation des numeros de question--}}
+
                             <th scope="row">Question {{$val->question->id}}</th>
+
+                            {{--recuperation de toutes mes titres--}}
                             <td>{{$val->question->title}}</td>
                             
+                            {{--recuperation de toutes mes reponses--}}
                             <td>{{$val->answer}}</td>
                             
                           </tr>

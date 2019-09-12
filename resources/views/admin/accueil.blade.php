@@ -31,7 +31,7 @@
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                 @csrf
                                             </form>
-                                        
+ 
                                     </div>
                                     </li>
                                 </ul>
@@ -166,16 +166,19 @@
                                                         }
                                                     ]
                                                 };
-                                                
+                                                //creation  de mon contexte
                                                 var ctx = document.getElementById("myChart");
                                                 
+                                                //creation d'une instance de Chart
                                                 var myRadarChart = new Chart(ctx, {
                                                     type: 'radar',
                                                     data: data,
                                                     options: {
                                                       scale: {
                                                         ticks: {
-                                                            beginAtZero: true
+                                                            beginAtZero: true,
+                                                            max:5,
+                                                            
                                                         }
                                                       }
                                                     }

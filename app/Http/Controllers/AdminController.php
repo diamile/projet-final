@@ -81,32 +81,32 @@ class AdminController extends Controller
         /************************* debut de la section concernant le radar chart **********************/
                      $question11 = DB::table('reponses')
                     ->join('questions', 'reponses.question_id', '=', 'questions.id')
-                    ->select('reponses.*')->where('questions.title','Combien donnez vous de point pour la qualité de l’image sur Bigscreen ?')
+                    ->select('reponses.*')->where('reponses.question_id','11')
                     ->avg('answer');
 
 
                     $question12 = DB::table('reponses')
                     ->join('questions', 'reponses.question_id', '=', 'questions.id')
-                    ->select('reponses.*')->where('questions.title','Combien donnez vous de point pour le confort d’utilisation de l’interface Bigscreen ?')
+                    ->select('reponses.*')->where('reponses.question_id','12')
                     ->avg('answer');
                    
                     
 
                     $question13 = DB::table('reponses')
                     ->join('questions', 'reponses.question_id', '=', 'questions.id')
-                    ->select('reponses.*')->where('questions.title','Combien donnez vous de point pour la connection réseau de Bigscreen ?')
+                    ->select('reponses.*')->where('reponses.question_id','13')
                     ->avg('answer');
                     
 
                     $question14 = DB::table('reponses')
                     ->join('questions', 'reponses.question_id', '=', 'questions.id')
-                    ->select('reponses.*')->where('questions.title','Combien donnez vous de point pour la qualité des graphismes 3D dans Bigscreen ? ')
+                    ->select('reponses.*')->where('reponses.question_id','14')
                     ->avg('answer');
                     
 
                     $question15 = DB::table('reponses')
                     ->join('questions', 'reponses.question_id', '=', 'questions.id')
-                    ->select('reponses.*')->where('questions.title','Combien donnez vous de point pour la qualité audio dans Bigscreen ? ')
+                    ->select('reponses.*')->where('reponses.question_id','15')
                    ->avg('answer');
                     
                    

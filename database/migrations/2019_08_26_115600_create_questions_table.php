@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
             $table->string('number');
             $table->string('typeOfQuestion');
             $table->string('choice')->nullable();
+            $table->boolean('is_email')->nullable()->default(false);
             $table->integer('poll_id')->unsigned()->index();
            
             $table->timestamps();
