@@ -34,10 +34,7 @@
             
                               <input type="email" class="doshed form-control" id="email" value="{{old('reponse_type')}}" name="email[{{$question->id}}]" placeholder="{{$question->titre}}" value="{{old('reponse_type')}}"/>
                               
-                              @if($errors->has('email.'.$question->question_id)) 
-                              <span class="alert-danger">{{$errors->first('email.'.$question->question_id)}}
-                              </span>
-                              @endif
+                             
 
                               {{--si la question est de type B--}}
                               @elseif($question->typeOfQuestion=="B")

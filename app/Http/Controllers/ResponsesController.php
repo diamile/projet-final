@@ -29,7 +29,7 @@ class ResponsesController extends Controller
             'reponse_typeA.*' => 'required',
             'reponse_typeB.*' => 'required|min:1|max:255',
             'reponse_typeC.*' => 'required',
-            'email' => 'required|email|max:255|regex:/(.*)@myemail\.com/i|unique:users'
+            'email.*' => 'required|email:filter'
             ]);
         
             //utilisation de la fonction array_replace pour 
