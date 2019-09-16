@@ -13,6 +13,13 @@ class CreatePollsTable extends Migration
      */
     public function up()
     {
+    
+    /*
+    |-------------------------------------------------------------------
+    | Création de ma table polls en lui spécifiant les noms et types 
+    |de colonnes.
+    |-------------------------------------------------------------------
+    */ 
         Schema::create('polls', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
@@ -25,6 +32,15 @@ class CreatePollsTable extends Migration
      *
      * @return void
      */
+
+
+    /*
+    |-------------------------------------------------------------------
+    |La fonction down sera appellée quand on fait un rollback,son role 
+    |est de supprimer la table polls 
+    |-------------------------------------------------------------------
+    */ 
+
     public function down()
     {
         Schema::dropIfExists('polls');

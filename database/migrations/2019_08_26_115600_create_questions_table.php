@@ -4,6 +4,13 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/*
+    |-------------------------------------------------------------------
+    | Création de ma table questions en lui spécifiant les noms et types 
+    |de colonnes.
+    |-------------------------------------------------------------------
+*/  
+
 class CreateQuestionsTable extends Migration
 {
     /**
@@ -31,6 +38,14 @@ class CreateQuestionsTable extends Migration
      *
      * @return void
      */
+
+     /*
+    |-------------------------------------------------------------------
+    |La fonction down sera appellée quand on fait un rollback,son role 
+    |est de supprimer la table questions 
+    |-------------------------------------------------------------------
+    */ 
+
     public function down()
     {
         Schema::dropIfExists('questions');

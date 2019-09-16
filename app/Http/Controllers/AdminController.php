@@ -31,23 +31,37 @@ class AdminController extends Controller
 
     public function index()
     {
-        //************************* debut de la section concernant le pie chart de la question 6**********************//
+
+     /*
+    |--------------------------------------------------------------------------
+    | Debut de le section concernant le pie chart pour la question 6.
+    | Creation de requéte au niveau de la base de données afin recuperer 
+     |les differentes reponses de l'utilisateur
+    |--------------------------------------------------------------------------
+    */
+                    
         
         $OcculusRift=DB::table('reponses')->where('answer','Occulus Rift/s')->count();
         $HTCVive=DB::table('reponses')->where('answer','HTC Vive')->count();
         $WindowsMixedReality=DB::table('reponses')->where('answer','Windows Mixed Reality')->count();
         $PSVR=DB::table('reponses')->where('answer','PSVR')->count();
        
-        //les données que je devrais passé à pie chart pour la question6
         $pie6=[$OcculusRift,$HTCVive,$WindowsMixedReality,$PSVR];
+       
+      /*
+    |--------------------------------------------------------------------------
+    |Fin de le section concernant le pie chart de la question 6
+    |--------------------------------------------------------------------------
+    */
 
-        
 
-         /************************* fin de la section concernant le pie chart de la question 6**********************/
-        
-    
-
-        /************************* section concernant le pie chart de la question 7**********************/
+     /*
+    |--------------------------------------------------------------------------
+    | Debut de le section concernant le pie chart pour la question 7.
+    | Creation de requéte au niveau de la base de données afin recuperer 
+     |les differentes reponses de l'utilisateur
+    |--------------------------------------------------------------------------
+    */
         $SteamVR=DB::table('reponses')->where('answer','SteamVR')->count();
         $OcculusStore=DB::table('reponses')->where('answer','Occulus store')->count();
         $Viveport=DB::table('reponses')->where('answer','Viveport')->count();
@@ -55,30 +69,42 @@ class AdminController extends Controller
         $GooglePlay=DB::table('reponses')->where('answer','Google Play')->count();
         $WindowsStore=DB::table('reponses')->where('answer','Windows store')->count();
         
-        
-        //les données que je devrai passé à pie chart pour la question7
         $pie7=[$SteamVR,$OcculusStore,$Viveport,$PlaystationVR,$GooglePlay,$WindowsStore];
-       
-        
-        /************************* fin de la section concernant le pie chart de la question 7 **********************/
-                    
 
+       /*
+    |--------------------------------------------------------------------------
+    | Fin de la section pour le pie chart de la question 7
+    |--------------------------------------------------------------------------
+    */            
 
-         /************************* debut de la section concernant le pie chart de la question 10 **********************/
-        $regarderEmissionsTV=DB::table('reponses')->where('answer','regarder des émissions TV en direct')->count();
-        $regarderFilms=DB::table('reponses')->where('answer','regarder des films')->count();
-        $jouerEnSolo=DB::table('reponses')->where('answer','jouer en solo')->count();
-        $jouerEnTeam=DB::table('reponses')->where('answer','jouer en team')->count();
+ /*
+    |--------------------------------------------------------------------------
+    | Debut de le section concernant le pie chart pour la question 10.
+    | Creation de requéte au niveau de la base de données afin recuperer 
+     |les differentes reponses de l'utilisateur
+    |--------------------------------------------------------------------------
+    */
+         $regarderEmissionsTV=DB::table('reponses')->where('answer','regarder des émissions TV en direct')->count();
+         $regarderFilms=DB::table('reponses')->where('answer','regarder des films')->count();
+         $jouerEnSolo=DB::table('reponses')->where('answer','jouer en solo')->count();
+         $jouerEnTeam=DB::table('reponses')->where('answer','jouer en team')->count();
 
-        //les données que je devrai passé à pie chart pour la question10
-        $pie10=[$regarderEmissionsTV,$regarderFilms,$jouerEnSolo, $jouerEnTeam];
+         $pie10=[$regarderEmissionsTV,$regarderFilms,$jouerEnSolo, $jouerEnTeam];
 
-
-        /************************* fin de la section concernant le pie chart de la question 10 **********************/
-
+   /*
+    |--------------------------------------------------------------------------
+    | Fin de la section pour le pie chart de la question 10
+    |--------------------------------------------------------------------------
+    */   
                  
 
-        /************************* debut de la section concernant le radar chart **********************/
+      /*
+    |--------------------------------------------------------------------------
+    | Debut de le section concernant le radar chart pour les questions de 11 à 15.
+    | Creation de requéte au niveau de la base de données afin recuperer 
+     |les differentes reponses de l'utilisateur
+    |--------------------------------------------------------------------------
+    */
                      $question11 = DB::table('reponses')
                     ->join('questions', 'reponses.question_id', '=', 'questions.id')
                     ->select('reponses.*')->where('reponses.question_id','11')
@@ -109,15 +135,23 @@ class AdminController extends Controller
                     ->select('reponses.*')->where('reponses.question_id','15')
                    ->avg('answer');
                     
+                   $questions=[$question11,$question12,$question13,$question14,$question15];
                    
-            /************************* fin de la section concernant le radar chart **********************/
-            
+            /*
+    |--------------------------------------------------------------------------
+    | Fin de la section pour le radar chart
+    |--------------------------------------------------------------------------
+    */   
         
-        return view('admin.accueil',['pie6'=>$pie6,'pie7'=>$pie7,'pie10'=>$pie10],compact('question11','question12','question13','question14','question15'));
+        return view('admin.accueil',['pie6'=>$pie6,'pie7'=>$pie7,'pie10'=>$pie10],compact('questions'));
 
     }
 
-
+     /*
+    |--------------------------------------------------------------------------
+    | Création de ma fonction showQuestion qui retourne la vue questionnaire
+    |--------------------------------------------------------------------------
+    */
     public function showQuestion(){
         //creation de mon instance questions afin de recuprer toutes mes questions 
         $questions=Question::all();
@@ -126,6 +160,13 @@ class AdminController extends Controller
         
     }
 
+
+      /*
+    |--------------------------------------------------------------------------
+    | Création de ma fonction showResponse qui retourne la vue qui contient 
+    |toutes les questions et reponsee de l'utilisateur
+    |--------------------------------------------------------------------------
+    */
 
     public function showResponse(){
         //creation de mon instance questions afin de recuprer toutes mes questions et toutes mes reponses

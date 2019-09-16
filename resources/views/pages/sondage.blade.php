@@ -1,7 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-  
+ 
+@foreach($polls as $poll)
+<h1 style="text-align:center;">{{$poll->name}}</h1>
+@endforeach
 {{--le contenu de toutes mes questions--}}
 
 	<article style="width:100%" class="container" id="container">

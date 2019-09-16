@@ -6,9 +6,20 @@ use Illuminate\Http\Request;
 use App\Reponse;
 use Illuminate\Support\Str;
 
-//ResponsesController
+/*
+    |------------------------------------------------
+    | Création de mon controller ResponsesController
+    |------------------------------------------------
+*/
+
 class ResponsesController extends Controller
 {
+
+/*
+    |----------------------------------------------------------------
+    | Création de ma fonction index  afin d'afficher ma page reponse 
+    |----------------------------------------------------------------
+*/
     public function index()
     {
       
@@ -16,13 +27,31 @@ class ResponsesController extends Controller
     }
 
 
-//methode store qui me permet de recuperer les valeurs saisies par l'utilisateur et le stockage dans la base de données
+/*
+    |--------------------------------------------------------------------------
+    | Création de ma fonction store qui me permet d'abort de recuperer toutes 
+    les données saisies par l'utilisateur et ensuite de l'inserer dans la 
+    base de donnée
+    |--------------------------------------------------------------------------
+*/
+
     public function store(Request $request){ 
  
-    //creation d'un clé unique  pour chaque utilisateur
+    
+/*
+    |--------------------------------------------------------------------------
+    | creation d'un clé unique  pour chaque utilisateur En utilisant 
+    l'universal unique identifiant qui genére une clé uniqiue
+    |--------------------------------------------------------------------------
+*/
     $Link = Str::uuid()->toString();
     
-    //utilisation de la methode validate qui permet de valider mes champs
+       
+/*
+    |--------------------------------------------------------------------------
+    | Validation de chaque type de colonne avec la methode validate de laravel
+    |--------------------------------------------------------------------------
+*/
         $this->validate($request,[
           
             //toutes les reponses de chaque type de question
@@ -32,7 +61,13 @@ class ResponsesController extends Controller
             'email.*' => 'required|email:filter'
             ]);
         
-            //utilisation de la fonction array_replace pour 
+/*
+    |--------------------------------------------------------------------------
+    | Recuperation des reponses pur chaque de type de question avec $request , et je le mets 
+    |dans un tableau afin de la boucler avec foreach pour recuperer les 
+    |reponses pour chaque type de question
+    |--------------------------------------------------------------------------
+*/
             $reponses = array_replace(
                        
                         $request->reponse_typeA,
@@ -41,13 +76,27 @@ class ResponsesController extends Controller
                         $request->email
             );
 
-           //utilisation de ksort afin de ranger mes données par ordre croissant
+ /*
+    |--------------------------------------------------------------------------
+    | Utilisation de mon ksort afin d'ordonner mon tableau
+    |--------------------------------------------------------------------------
+*/
             ksort($reponses);
         
-            //je fais une boucle au niveau de mon tableau afin de recuperer les valeurs
+  
+/*
+    |--------------------------------------------------------------------------
+    |  je fais une boucle au niveau de mon tableau afin de recuperer les reponses
+    |  et de l'insererer dans la table answer
+    |--------------------------------------------------------------------------
+*/ 
             foreach($reponses as $key =>$value){
         
-                //Utilisation de la methode create afin d'inserer les données au niveau de la base de données
+/*
+    |---------------------------------------------------------------
+    |  Utilisation de la methode create afin de faire des solutions
+    |---------------------------------------------------------------
+*/
                 Reponse::create([
                  
                 'answer' =>$value,
@@ -57,7 +106,14 @@ class ResponsesController extends Controller
                 ]);
             }
         
-         //redirection vers la page d'accueil 
+        
+/*
+    |--------------------------------------------------------------------------
+    |   redirection vers la page d'accueil en lui passant un message suivie d'un
+    |   lien que j'ai concatener avec la clé unique .de ce fait si l'utilisateur
+    |    clique sur ce lien il ne verra que ses reponse
+    |--------------------------------------------------------------------------
+*/
            return redirect('/')->with(
            "success",
            "toute l’équipe de Bigscreen vous remercie pour votre engagement. Grâce 

@@ -2,6 +2,12 @@
 
 use Illuminate\Database\Seeder;
 
+ /*
+    |----------------------------------------------
+    |  Creation de mon seeder QuestionsTableSeeder 
+    |----------------------------------------------
+  */ 
+
 class QuestionTableSeeder extends Seeder
 {
     /**
@@ -11,6 +17,13 @@ class QuestionTableSeeder extends Seeder
      */
     public function run()
     {
+       
+    /*
+    |--------------------------------------------------------------------------
+    |  L'enregistrement de mes differentes questions dans la base de données
+    |--------------------------------------------------------------------------
+    */ 
+
         DB::table('questions')->insert([
         ['number' => 'Question 1/20',
         'title' =>'Votre adresse mail',
@@ -230,11 +243,6 @@ class QuestionTableSeeder extends Seeder
      'poll_id'=>1,
      
      ],
-
-
-
-
-   
 
   ]);
 

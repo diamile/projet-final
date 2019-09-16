@@ -11,7 +11,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
+{{--      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+--}}
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -19,11 +22,18 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-bundle.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-exports.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.0/js/anychart-radar.min.js"></script>
+    
     {!! Charts::assets() !!}
 </head>
 <body>
-    {{--  <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div id="app">
+         {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -78,8 +88,10 @@
 
         <main class="py-4">
             @yield('content')
-            <script src="{{ asset('js/validate.js') }}" defer></script>
+           
         </main>
     </div>
+    
+  
 </body>
 </html>

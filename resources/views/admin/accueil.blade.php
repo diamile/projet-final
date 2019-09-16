@@ -43,162 +43,189 @@
 
             <section class="col pt-2">
                
+                {{--affichage des mes differentes graphes pie chart et radar chart--}}
+
                 <section class="container">
                    
                         <div class="row" style="justify-content:space-between">
-                            {{--affichage de mon pie chart 6 ---}}
-                           
-                           
-                            <section style="border:1px solid gray">
-                                    
-                                    <div style="height:400px;width:400px">
-                                        <canvas id="myChart1"></canvas>
-                                     </div>
-                                     <script>
-                                         //pie Chart pour la question 6
-                                            var ctx = document.getElementById("myChart1").getContext('2d');;
-                                            var myChart = new Chart(ctx, {
-                                            type: 'pie',
-                                            data: {
-                                                labels:['Occulus Rift/s','HTC Vive','Windows Mixed Reality',' PSVR'],
-                                                datasets: [{
-                                                backgroundColor: [
-                                                    "#2ecc71",
-                                                    "#3498db",
-                                                    "#95a5a6",
-                                                    "#9b59b6",
-                                                ],
-                                                data: ["{{$pie6[0]}}", "{{$pie6[1]}}", "{{$pie6[2]}}", "{{$pie6[3]}}"]
-                                                }]
-                                            }
-                                            });
+                                        
+                                <section>
+                                         <div id="piechart"></div>
+                                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                
+                                                <script type="text/javascript">
+
+                                                //chargement de chart
+                                                google.charts.load('current', {'packages':['corechart']});
+                                                google.charts.setOnLoadCallback(drawChart);
+                                                        
+                                                //creation du radart chart
+                                                const pie6= {!! json_encode($pie6) !!};
+                                                function drawChart() {
+                                                const data = google.visualization.arrayToDataTable([
+                                                ['Task', 'Hours per Day'],
+                                                ['Occulus Rift/s', pie6[0]],
+                                                ['HTC Vive', pie6[1]],
+                                                ['Windows M Reality', pie6[2]],
+                                                [' PSVR', pie6[3]],
+                                                          
+                                                ]);
+                                                        
+                                                //les options de pie chart
+                                                 var options = {'title':'Question 6', 'width':550, 'height':400};
+                                                        
+                                                //Affichage de mon pie chart dans une div
+                                                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                                                chart.draw(data, options);
+                                                 }
                                          </script>
-
-                            </section>
-
-                              {{--affichage de mon pie chart 7 ---}}
-                            <section style="border:1px solid gray">
-                                   
-                                <div style="height:400px;width:400px">
-                                     <canvas id="myChart2"></canvas>
-                                </div>
+                                </section>    
                                 
-                                <script>
-                                    var ctx = document.getElementById("myChart2");
-                                    var myChart = new Chart(ctx, {
-                                      type: 'pie',
-                                      data: {
-                                        labels: ['SteamVR','Occulus store',' Viveport',' Playstation VR',' Google Play','Windows store'],
-                                        datasets: [{
-                                          backgroundColor: [
-                                            "#2ecc71",
-                                            "#3498db",
-                                            "#95a5a6",
-                                            "#9b59b6",
-                                            "#f1c40f",
-                                            "#e74c3c",
-                                           
-                                          ],
-                                          data: ["{{$pie7[0]}}", "{{$pie7[1]}}", "{{$pie7[2]}}", "{{$pie7[3]}}","{{$pie7[4]}}","{{$pie7[5]}}"]
-                                        }]
-                                      }
-                                    });
+                                <section>
+                                       <div id="piechart2"></div>
+                                         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                
+                                                <script type="text/javascript">
+                                                        
+                                                //chargement de mon pie chart
+                                                google.charts.load('current', {'packages':['corechart']});
+                                                google.charts.setOnLoadCallback(drawChart);
+                                                
+                                                //creation de mon pie chart
+                                                 const pie7= {!! json_encode($pie7) !!};
+                                                 function drawChart() {
+                                                var data = google.visualization.arrayToDataTable([
+                                                 ['Task', 'Hours per Day'],
+                                                 ['SteamVR', pie7[0]],
+                                                ['Occulus store', pie7[1]],
+                                                ['Viveport',pie7[2]],
+                                                 ['Playstation VR', pie7[3]],
+                                                 ['Google Play', pie7[4]],
+                                                ['Windows store', pie7[5]],
+                                                          
+                                                ]);
+                                                        
+                                                 //les options l'or de la creation de pie chart
+                                                var options = {'title':'Question 7', 'width':550, 'height':400};
+                                                        
+                                                //Affichage de mon pie Chart
+                                                var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+                                                chart.draw(data, options);
+                                                }
+                                         </script>
+                                 </section>
+
+
+                                 <section style="margin-top:50px">
+                                                <div id="piechart3"></div>
+                                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                        
+                                                <script type="text/javascript">
+                                                                // Load google charts
+                                                google.charts.load('current', {'packages':['corechart']});
+                                                google.charts.setOnLoadCallback(drawChart);
+        
+                                                               //creation de mon pie chart
+                                                 const pie10= {!! json_encode($pie10) !!};
+                                                function drawChart() {
+                                                 var data = google.visualization.arrayToDataTable([
+                                                ['Task', 'Hours per Day'],
+                                                ['regarder des émissions TV en direct', pie10[0]],
+                                                 ['regarder des films', pie10[1]],
+                                                 ['jouer en solo',pie10[2]],
+                                                 ['jouer en team', pie10[3]],  
+                                                 ]);
+                                                                
+                                                        //les options l'or de la creation de mon pie Chart
+                                                 var options = {'title':'Question 10', 'width':550, 'height':400};
+                                                                
+                                                         //Affichage de mon pie chart
+                                                var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+                                                                  chart.draw(data, options);
+                                                                }
+                                                 </script>
+                                </section>
+
+                                                                  
+                                <section>
+                                                                 
+                                     <div id="container" style="background-color:white;width:550px;height:400px;margin-top:50px"></div>
+                                      <script>
+                                   const questions={!! json_encode($questions) !!};
+
+                                anychart.onDocumentReady(function () {
+                               
+                               //creation de mes données et de mes labels
+                                var dataSet = anychart.data.set([
+                                        ['qualité de l’image', questions[0]],
+                                        ['le confort de l’interface', questions[1]],
+                                        ['connection réseau', questions[2]],
+                                        ['qualité des graphismes 3D', questions[3]],
+                                        ['la qualité audio', questions[4]]
+                                       
+                                ]);
+
+                               
+                                var data1 = dataSet.mapAs({'x': 0, 'value': 1});
+
+                                // creation de mon radar chart
+                                var chart = anychart.radar();
+
+                                //titre de mon radar chart
+                                chart.title('Radar Chart pour les questions de 11 à 15')
+                                        
+                                        //modifier le statut de la légende
+                                        .legend(false);
+
+                               //dimansionnement de mon radar chart
+                                chart.padding().bottom(0);
+                                chart.width(800);
+                                chart.height(420);
+                                chart.padding().right(220);
+                                chart.padding().top(0)
+
+                                //initialisation de mon echelle
+                                chart.yScale()
+                                        .minimum(0)
+                                        .maximum(5)
+                                        .ticks({'interval': 0.25});
+
+                                //stylisation de mes labels
+                                chart.label()
+                                        
+                                        .anchor('center-bottom')
+                                        .position('center-bottom')
+                                        .fontWeight('normal')
+                                        .fontSize(11)
+                                        .fontFamily('tahoma')
+                                        .fontColor('rgb(35,35,35)')
+                                        .offsetY(15);
+
+                                
+                                chart.line(data1).name('July 2019').markers(false);
+
+                                
+                                chart.tooltip().format('Value: {%Value}{decimalsCount: 2}');
+
+                                //le conteneur de mon radar chart
+                                chart.container('container');
+                                // initialisation de creation du graphe
+                                chart.draw();
+                                });
                                 </script>
 
-                                
-                            </section>
-                            
-                             {{--affichage de mon pie chart 10 ---}}
-                            <section style="border:1px solid gray;margin-top:20px;">
-                                     {{--  {!! $pie10->html() !!}  --}}
-
-                                <div style="height:400px;width:400px">
-                                     <canvas id="myChart3"></canvas>
-                                 </div>
-                                
-                                 <script>
-                                             //pie Chart pour la question 10
-                                                var ctx = document.getElementById("myChart3").getContext('2d');;
-                                                var myChart = new Chart(ctx, {
-                                                type: 'pie',
-                                                data: {
-                                                    labels:['regarder des émissions TV en direct','regarder des films','jouer en solo', 'jouer en team'],
-                                                    datasets: [{
-                                                    backgroundColor: [
-                                                        "#2ecc71",
-                                                        "#3498db",
-                                                        "#95a5a6",
-                                                        "#9b59b6",
-                                                    
-                                                    ],
-                                                    data: ["{{$pie10[0]}}", "{{$pie10[1]}}", "{{$pie10[2]}}", "{{$pie10[3]}}"]
-                                                    }]
-                                                }
-                                                });
-                                    </script>
-
-
-                            </section>
-                                                        
-                            {{--affichage de du radarChart ---}}
-                             <section style="border:1px solid gray;margin-top:20px;">
-                                    
-                                  <div style="height:400px;width:400px">
-                                      {{--creation de mon canvas--}}
-                                            <canvas id="myChart"></canvas>
-                                    </div>
-
-                                        <script>
-                                               //creation des données qui seront donnée dans mon instance myRadarChart
-                                            var data = {
-                                                    labels: ["Qualité image", "Qualité Confort interface bigscreen", "Qualité connection reseau", "Qualité graphisme 3D","Qualité audio"],
-                                                    datasets: [
-                                                        {
-                                                            
-                                                            backgroundColor: "rgba(68,181,238,0.2)",
-                                                            borderColor: "rgba(68,181,238,1)",
-                                                            pointBackgroundColor: "rgba(179,181,198,1)",
-                                                            pointBorderColor: "#fff",
-                                                            pointHoverBackgroundColor: "#fff",
-                                                            pointHoverBorderColor: "rgba(179,181,198,1)",
-                                                            data: ["{{$question11}}", "{{$question12}}", "{{$question13}}", "{{$question14}}", 
-                                                            "{{$question15}}"]
-                                                        }
-                                                    ]
-                                                };
-                                                //creation  de mon contexte
-                                                var ctx = document.getElementById("myChart");
-                                                
-                                                //creation d'une instance de Chart
-                                                var myRadarChart = new Chart(ctx, {
-                                                    type: 'radar',
-                                                    data: data,
-                                                    options: {
-                                                      scale: {
-                                                        ticks: {
-                                                            beginAtZero: true,
-                                                            max:5,
-                                                            
-                                                        }
-                                                      }
-                                                    }
-                                                });
-
-                                         </script>
-                             </section>
-                                
-                               
-                    </div>
-                    
-
-                {!! Charts::scripts() !!}
-         
-                </section>
-                        </section>
-                
-        </section>
-           
+                                </div>
+                          </section>
         
+                                                                
+                  </section>
+                     </section>
+                  
+        </section>
+
+        
+          
+              
  </article>
 
 @endsection

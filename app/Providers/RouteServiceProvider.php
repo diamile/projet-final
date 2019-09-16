@@ -23,7 +23,13 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+    /*
+    |-------------------------------------------------------
+    |  Ici j'ai utilisé les contraintes globales de laravel,
+    |-------------------------------------------------------
+   */ 
+                 
+        Route::pattern('id', '[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}');
 
         parent::boot();
     }
