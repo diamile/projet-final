@@ -4,15 +4,21 @@
 
 <article class="container-fluid">
 <style>
+        .pt-12{
+                min-width:1150px;
+        }
         @media screen and(max-width:991px){
         .chart{
           flex-direction:column;
         }
         .chart1,.chart2,.chart3,.chart4{
-                width:100%;
+                width:450px;
         }
         .chart-1,.chart-2,.chart-3,.chart-4{
-                width:100%;
+                width:450px;
+        }
+        .pt-12{
+                width:1285px;
         }
         }
 </style>
@@ -63,8 +69,8 @@
                    
                         <div class="row" style="justify-content:space-between">
                                         
-                                <section class="chart1" style="500px">
-                                         <div id="piechart" class="chart-1"style="width:500px"></div>
+                                <section class="chart1" style="450px">
+                                         <div id="piechart" class="chart-1"style="width:450px"></div>
                                         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                 
                                                 <script type="text/javascript">
@@ -95,8 +101,8 @@
                                          </script>
                                 </section>    
                                 
-                                <section class="chart2" style="500px">
-                                       <div id="piechart2" class="chart-2"style="width:500px"></div>
+                                <section class="chart2" style="450px">
+                                       <div id="piechart2" class="chart-2"style="width:450px"></div>
                                          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                 
                                                 <script type="text/javascript">
@@ -130,7 +136,7 @@
                                  </section>
 
 
-                                 <section class="chart3" style="margin-top:50px;width:500px">
+                                 <section class="chart3" style="margin-top:50px;width:450px">
                                                 <div id="piechart3" class="chart-3" style="width:500px"></div>
                                                 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                         
@@ -161,9 +167,9 @@
                                 </section>
 
                                                                   
-                                <section class="chart4" style="500px">
+                                <section class="chart4" style="450px">
                                                                  
-                                     <div id="container" class="chart-4" style="background-color:white;width:500px;height:400px;margin-top:50px"></div>
+                                     <div id="container" class="chart-4" style="background-color:white;width:450px;height:400px;margin-top:50px"></div>
                                       <script>
                                    const questions={!! json_encode($questions) !!};
 

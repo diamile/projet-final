@@ -5,8 +5,8 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100 menu" id="sidebar" style="position:fixed;height:963px">
-                    <div class="menu-big" style="margin:0 auto">
+            <div class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100 menu" id="sidebar" style="position:fixed;height:963px;max-width:250px;">
+                    <div class="menu-big" style="margin:0 auto;max-width:250px;">
                     
                     <img style="width:200px;height:40px;margin:0 auto;" id="logo" src="{{asset('images/bigscreen_logo.png')}}" alt="logo"/>
                     
@@ -42,9 +42,9 @@
                 
             </div>
 
-            <div style="margin-left:600px;">
+            <div style="margin-left:300px;width:90%">
                 <h2>
-                    <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a>
+                    <a href="" data-target="#sidebar" style="max-width:250px;" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a>
                     reponses
                 </h2>
                

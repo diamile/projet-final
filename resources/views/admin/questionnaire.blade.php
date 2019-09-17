@@ -4,8 +4,8 @@
 
     <article class="container-fluid">
         <section class="row">
-            <section style="height:1081px" class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100 menu" id="sidebar">
-                    <section class="menu-big" style="margin:0 auto">
+            <section style="height:1081px;max-width:250px;" class="col-2 collapse d-md-flex bg-light pt-2 min-vh-100 menu" id="sidebar">
+                    <section class="menu-big" style="margin:0 auto;max-width:250px;">
                     
                     <img style="width:200px;height:40px;margin:0 auto;" id="logo" src="{{asset('images/bigscreen_logo.png')}}" alt="logo"/>
                     
@@ -43,7 +43,7 @@
         </section>
             <div class="col pt-2">
                 <h2 style="text-align:center;">
-                    <a href="" data-target="#sidebar" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a>
+                    <a href="" data-target="#sidebar" style="max-width:250px;" data-toggle="collapse" class="d-md-none"><i class="fa fa-bars"></i></a>
                     Page Questionnaire
                 </h2>
                 <table class="table table-hover" style="border:1px solid black;margin-top:10px;">
