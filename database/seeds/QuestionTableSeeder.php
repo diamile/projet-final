@@ -36,7 +36,6 @@ class QuestionTableSeeder extends Seeder
         ],
 
      [
-
         'number' => 'Question 2/20',
         'titre' =>'Votre age',
         'typeOfQuestion'=> 'B',

@@ -43,3 +43,6 @@ table, th, td {
   #validate{
       position:fixed;
   }
+  #sidebar{
+      max-width:250px;
+  }
