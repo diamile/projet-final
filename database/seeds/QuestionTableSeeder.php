@@ -3,9 +3,9 @@
 use Illuminate\Database\Seeder;
 
  /*
-    |----------------------------------------------
-    |  Creation de mon seeder QuestionsTableSeeder 
-    |----------------------------------------------
+    |---------------------------------------------------------------------------------------------
+    |  Creation de mon seeder QuestionsTableSeeder afin d'inserer mes données dans la base de donnée
+    |----------------------------------------------------------------------------------------------
   */ 
 
 class QuestionTableSeeder extends Seeder

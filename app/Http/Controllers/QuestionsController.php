@@ -75,8 +75,7 @@ class QuestionsController extends Controller
     | recupereration de la date et l'heure juste à la fin du sondage
     |--------------------------------------------------------------------------
     */
-       
-        $date=Reponse::orderBy('created_at', 'DESC')->get();
+          $date=Reponse::orderBy('created_at', 'DESC')->get();
         
         $now=$date[0]->created_at->addHours(2);
        
